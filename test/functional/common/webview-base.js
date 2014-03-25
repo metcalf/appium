@@ -89,6 +89,12 @@ module.exports = function (app) {
         .then(function () { return spinTitle('I am another page title', driver); })
         .nodeify(done);
     });
+    it('should be able to click links outside the viewable area', function (done) {
+      driver
+        .elementById('i_am_a_link_out_of_view').click()
+        .then(function () { return spinTitle('I am another page title', driver); })
+        .nodeify(done);
+    });
 
     it('should retrieve an element attribute', function (done) {
       driver
